@@ -3,23 +3,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './index.css';
-import images from './assets/images.json';
 
-// ||, &&, ??, ... ? .. : ..
-
-// true && img
-// false && no image
-
-// isModalOpen = false
-// isModalOpen && <Modal>
-
-// title && <p>title</p>
-// title && <p>title</p>
-
-const UserAvatar = ({ src, alt = 'test' }) => {
-  // ....
-  return <img width="150px" src={src || images[2]} alt={alt} />;
-};
+// import images from './assets/images.json';
+import users from './assets/users.json';
+import { UserCard } from './components/UserCard/UserCard';
+import { UserCard2 } from './components/UserCard2/UserCard2';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<UserAvatar alt="hello" />);
+// root.render(<UserCard images={images} />);
+root.render(
+  <React.StrictMode>
+    <UserCard users={users} />
+    <UserCard2 users={users} />
+  </React.StrictMode>,
+);
