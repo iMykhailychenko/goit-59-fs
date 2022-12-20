@@ -3,7 +3,7 @@
 import { Header } from './components/Layout/Header/Header';
 import { Layout } from './components/Layout/Layout';
 // import { Users } from './components/Users/Users';
-// import { Vouter } from './components/Vouter/Vouter';
+import { Vouter } from './components/Vouter/Vouter';
 
 export const App = () => {
   return (
@@ -11,7 +11,8 @@ export const App = () => {
       <Header title="Hello world!" />
 
       {/* <Counter /> */}
-      {/* <Vouter /> */}
+      {/* <Counter defaultValue={10} /> */}
+      <Vouter />
       {/* <Banner /> */}
       {/* <Users /> */}
     </Layout>
