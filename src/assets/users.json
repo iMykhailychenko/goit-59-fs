@@ -4,7 +4,7 @@
     "name": "Leanne Graham",
     "email": "Sincere@april.biz",
     "bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
-    "skils": ["react", "vue"],
+    "skills": ["react", "vue"],
     "isOpenToWork": false
   },
   {
@@ -12,7 +12,7 @@
     "name": "Ervin Howell",
     "email": "Shanna@melissa.tv",
     "bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
-    "skils": ["angular"],
+    "skills": ["angular"],
     "isOpenToWork": true
   },
   {
@@ -20,7 +20,7 @@
     "name": "Clementine Bauch",
     "email": "Nathan@yesenia.net",
     "bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
-    "skils": ["react"],
+    "skills": ["react"],
     "isOpenToWork": false
   },
   {
@@ -28,7 +28,7 @@
     "name": "Patricia Lebsack",
     "email": "Julianne.OConner@kory.org",
     "bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
-    "skils": ["react"],
+    "skills": ["react"],
     "isOpenToWork": false
   },
   {
@@ -36,7 +36,7 @@
     "name": "Chelsey Dietrich",
     "email": "Lucio_Hettinger@annie.ca",
     "bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
-    "skils": ["react", "angular"],
+    "skills": ["react", "angular"],
     "isOpenToWork": false
   },
   {
@@ -44,7 +44,7 @@
     "name": "Mrs. Dennis Schulist",
     "email": "Karley_Dach@jasper.info",
     "bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
-    "skils": ["vue"],
+    "skills": ["vue"],
     "isOpenToWork": true
   },
   {
@@ -52,7 +52,7 @@
     "name": "Kurtis Weissnat",
     "email": "Telly.Hoeger@billy.biz",
     "bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
-    "skils": ["react"],
+    "skills": ["react"],
     "isOpenToWork": false
   },
   {
@@ -60,7 +60,7 @@
     "name": "Nicholas Runolfsdottir V",
     "email": "Sherwood@rosamond.me",
     "bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
-    "skils": ["react"],
+    "skills": ["react"],
     "isOpenToWork": true
   },
   {
@@ -68,7 +68,7 @@
     "name": "Glenna Reichert",
     "email": "Chaim_McDermott@dana.io",
     "bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
-    "skils": ["react"],
+    "skills": ["react"],
     "isOpenToWork": false
   },
   {
@@ -76,7 +76,7 @@
     "name": "Clementina DuBuque",
     "email": "Rey.Padberg@karina.biz",
     "bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
-    "skils": ["angular"],
+    "skills": ["angular"],
     "isOpenToWork": true
   }
 ]
