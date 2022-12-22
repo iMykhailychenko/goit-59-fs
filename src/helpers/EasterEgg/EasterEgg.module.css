@@ -2,8 +2,8 @@
   position: fixed;
   right: 0;
   bottom: 0;
-  height: 250px;
-  width: 180px;
+  height: 20vh;
+  width: 10vw;
   overflow: hidden;
 }
 
@@ -17,7 +17,8 @@
 }
 
 .img {
-  width: 180px;
+  width: 100%;
+  height: auto;
   transform: translateX(30%) rotate(-10deg);
 }
 
