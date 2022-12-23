@@ -5,7 +5,7 @@
     "email": "Sincere@april.biz",
     "bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
     "skills": ["react", "vue"],
-    "isOpenToWork": false
+    "isOpenToWork": true
   },
   {
     "id": 2,

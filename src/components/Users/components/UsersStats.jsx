@@ -1,8 +1,10 @@
-export const UsersStats = () => {
+export const UsersStats = ({ users }) => {
+  const openToWorkCount = users.filter(user => user.isOpenToWork).length;
+
   return (
     <>
-      <p>Total: 100</p>
-      <p>Open to work: 50</p>
+      <p>Total: {users.length}</p>
+      <p>Open to work: {openToWorkCount}</p>
     </>
   );
 };

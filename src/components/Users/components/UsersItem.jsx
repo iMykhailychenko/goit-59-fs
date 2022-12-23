@@ -1,14 +1,20 @@
 import { PropTypes } from 'prop-types';
 
-export const UsersItem = ({ user }) => {
-  const { name, email, bio, skills, isOpenToWork } = user;
+export const UsersItem = ({ user, onDelete }) => {
+  const { id, name, email, bio, skills, isOpenToWork } = user;
+
+  const handleDelete = () => {
+    onDelete(id);
+  };
 
   return (
     <div className="card my-3">
       <div className="card-body">
         <h5 className="card-title d-flex">
           {name}
-          {isOpenToWork && <p className="badge bg-success ms-3">Open to work</p>}
+          {isOpenToWork && (
+            <p className="badge bg-success ms-3">Open to work</p>
+          )}
         </h5>
 
         <h6 className="card-subtitle mb-2 text-muted">{email}</h6>
@@ -23,7 +29,11 @@ export const UsersItem = ({ user }) => {
         </div>
 
         <div className="d-flex">
-          <button type="button" className="card-link btn-link">
+          <button
+            type="button"
+            className="card-link btn-link"
+            onClick={handleDelete}
+          >
             Delete
           </button>
         </div>

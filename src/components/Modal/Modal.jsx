@@ -1,4 +1,4 @@
-export const Modal = ({ children }) => {
+export const Modal = ({ children, onClose }) => {
   return (
     <>
       <div className="modal-backdrop fade show" />
@@ -8,7 +8,12 @@ export const Modal = ({ children }) => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">Modal title</h5>
-              <button type="button" className="btn-close" aria-label="Close" />
+              <button
+                type="button"
+                className="btn-close"
+                aria-label="Close"
+                onClick={onClose}
+              />
             </div>
 
             <div className="modal-body">{children}</div>

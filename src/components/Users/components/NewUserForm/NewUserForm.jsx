@@ -4,13 +4,49 @@ import { Availability } from './components/Availability';
 import { GeneralInfo } from './components/GeneralInfo';
 import { Skills } from './components/Skills';
 
-export class NewUserForm extends Component {
-  render() {
-    return (
-      <form action="#" autoComplete="off" className="w-100" onSubmit={this.handleSubmit}>
-        <GeneralInfo />
+// {
+//   "id": 1,
+//   "name": "Leanne Graham",
+//   "email": "Sincere@april.biz",
+//   "bio": "Assumenda
+//   "skills": ["react", "vue"],
+//   "isOpenToWork": true
+// },
 
-        <Availability />
+export class NewUserForm extends Component {
+  state = {
+    name: '',
+    email: '',
+    bio: '',
+    skills: [],
+    isOpenToWork: true,
+  };
+
+  handleChangeGeneralInfo = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  handleChangeOpenToWork = () => {
+    this.setState(prevState => ({ isOpenToWork: !prevState.isOpenToWork }));
+  };
+
+  render() {
+    const { name, email, bio, isOpenToWork } = this.state;
+
+    return (
+      <form action="#" autoComplete="off" className="w-100">
+        <GeneralInfo
+          bio={bio}
+          name={name}
+          email={email}
+          onChange={this.handleChangeGeneralInfo}
+        />
+
+        <Availability
+          isOpenToWork={isOpenToWork}
+          onChange={this.handleChangeOpenToWork}
+        />
 
         <Skills />
 

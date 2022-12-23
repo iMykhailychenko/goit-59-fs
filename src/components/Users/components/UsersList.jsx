@@ -1,12 +1,10 @@
-import usersJson from '../../../assets/users.json';
-
 import { UsersItem } from './UsersItem';
 
-export const UsersList = () => {
+export const UsersList = ({ users, onDelete }) => {
   return (
     <div className="mb-5">
-      {usersJson.map(user => (
-        <UsersItem key={user.id} user={user} />
+      {users.map(user => (
+        <UsersItem key={user.id} user={user} onDelete={onDelete} />
       ))}
     </div>
   );
