@@ -19,6 +19,18 @@ export class Skills extends Component {
     this.setState({ ...defaultValue, [event.target.value]: true });
   };
 
+  // hadleChange2 = event => {
+  //   this.setState(prevState => {
+  //     const oldKey = Object.keys(prevState).find(key => prevState[key]);
+
+  //     if (oldKey) {
+  //       return { oldKey: false, [event.target.value]: true };
+  //     }
+
+  //     return { [event.target.value]: true };
+  //   });
+  // };
+
   render() {
     return (
       <fieldset className="mt-3">
