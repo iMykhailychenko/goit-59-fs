@@ -54,3 +54,17 @@
 - Рендер списку
 - Видалення юзера
 - фільтрація за вмістом (текст)
+
+
+## Lesson 5 - 27/12/2022
+
+Графік:
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+- Життєвий цикл компонента. 
+- Методи життєвого циклу компонент-класів.
+- Збереження колекції юзерів в localStorage (componentDidMount та componentDidUpdate)
+- Модальне вікно (componentDidMount та componentWillUnmount)
+- Таймер і memory leak з setState() - розібрати componentWillUnmount
+- shouldComponentUpdate / PureComponent
+- Портали (опціонально)
