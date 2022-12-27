@@ -6,7 +6,19 @@ const skillsMap = [
   { id: 'angular', title: 'Angular' },
 ];
 
+const defaultValue = {
+  react: false,
+  vue: false,
+  angular: false,
+};
+
 export class Skills extends Component {
+  state = defaultValue;
+
+  hadleChange = event => {
+    this.setState({ ...defaultValue, [event.target.value]: true });
+  };
+
   render() {
     return (
       <fieldset className="mt-3">
@@ -17,7 +29,14 @@ export class Skills extends Component {
             <div key={skill.id} className="form-check me-5">
               <label className="form-check-label">
                 <span>{skill.title}</span>
-                <input type="radio" className="form-check-input" />
+                <input
+                  type="radio"
+                  name="skills"
+                  value={skill.id}
+                  checked={this.state[skill.id]}
+                  onChange={this.hadleChange}
+                  className="form-check-input"
+                />
               </label>
             </div>
           ))}
