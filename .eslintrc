@@ -23,6 +23,7 @@
     "react/no-unused-state": "off",
     "prefer-template": "off",
     "no-alert": "off",
+    "no-console": "off",
     "react/jsx-fragments": "off",
     "function-paren-newline": "off",
     "implicit-arrow-linebreak": "off",
