@@ -5,6 +5,7 @@ import { Modal } from '../Modal/Modal';
 
 import { NewUserForm } from './components/NewUserForm/NewUserForm';
 import { UsersList } from './components/UsersList';
+import { UsersNotFound } from './components/UsersNotFound/UsersNotFound';
 import { UsersSearch } from './components/UsersSearch';
 import { UsersStats } from './components/UsersStats';
 
@@ -48,6 +49,7 @@ export class Users extends Component {
 
         <UsersSearch />
         <UsersStats users={users} />
+        <UsersNotFound />
         <UsersList users={users} onDelete={this.handleDelete} />
       </>
     );
