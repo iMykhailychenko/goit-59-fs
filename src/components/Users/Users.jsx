@@ -10,15 +10,33 @@ import { UsersStats } from './components/UsersStats';
 
 export class Users extends Component {
   state = {
-    users: usersJson,
+    users: [],
     isModalOpen: false,
   };
+
+  componentDidMount() {
+    console.log('componentDidMount');
+    const users = JSON.parse(localStorage.getItem('users')) || usersJson;
+    this.setState({ users });
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (
+      prevState.users.length !== 0 &&
+      prevState.users.length !== this.state.users.length
+    ) {
+      console.log('componentDidUpdate');
+
+      localStorage.setItem('users', JSON.stringify(this.state.users));
+    }
+
+    // this.setState(...);
+  }
 
   handleDelete = id => {
     this.setState(prevState => {
       // id=1 [1,2,3,4] -> filter [2,3,4]
       const newUsersList = prevState.users.filter(user => user.id !== id);
-
       return { users: newUsersList };
     });
   };

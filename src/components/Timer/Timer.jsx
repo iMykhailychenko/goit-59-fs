@@ -5,8 +5,16 @@ import { Modal } from '../Modal/Modal';
 import { TimerModal } from './TimerModal';
 
 export class Timer extends Component {
+  state = {
+    isOpen: false,
+  };
+
+  toggle = () => {
+    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+  };
+
   render() {
-    const isOpen = true;
+    const { isOpen } = this.state;
 
     return (
       <div className="d-flex my-5">
@@ -19,7 +27,7 @@ export class Timer extends Component {
         </button>
 
         {isOpen && (
-          <Modal onModalClose={this.toggle}>
+          <Modal onClose={this.toggle}>
             <TimerModal />
           </Modal>
         )}
