@@ -3,7 +3,12 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["airbnb", "react-app", "plugin:react/recommended", "plugin:import/recommended"],
+  "extends": [
+    "airbnb",
+    "react-app",
+    "plugin:react/recommended",
+    "plugin:import/recommended"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -13,6 +18,7 @@
   },
   "plugins": ["react", "import"],
   "rules": {
+    "linebreak-style": "off",
     "max-len": "off",
     "react/no-unused-state": "off",
     "prefer-template": "off",
