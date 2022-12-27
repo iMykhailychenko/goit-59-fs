@@ -4,10 +4,18 @@ import { Modal } from '../Modal/Modal';
 
 import { BannerModal } from './BannerModal';
 
-const isOpen = false;
-
 export class Banner extends Component {
+  state = {
+    isOpen: false,
+  };
+
+  toggle = () => {
+    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+  };
+
   render() {
+    const { isOpen } = this.state;
+
     return (
       <>
         <div className="p-5 mb-4 bg-light rounded-3">
@@ -19,14 +27,18 @@ export class Banner extends Component {
               examples below for how you can remix and restyle it to your
               liking.
             </p>
-            <button className="btn btn-primary btn-lg mt-5" type="button">
+            <button
+              onClick={this.toggle}
+              className="btn btn-primary btn-lg mt-5"
+              type="button"
+            >
               Call to action
             </button>
           </div>
         </div>
 
         {isOpen && (
-          <Modal>
+          <Modal onClose={this.toggle}>
             <BannerModal />
           </Modal>
         )}
