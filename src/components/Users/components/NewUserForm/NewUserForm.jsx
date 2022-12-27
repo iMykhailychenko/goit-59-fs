@@ -4,15 +4,6 @@ import { Availability } from './components/Availability';
 import { GeneralInfo } from './components/GeneralInfo';
 import { Skills } from './components/Skills';
 
-// {
-//   "id": 1,
-//   "name": "Leanne Graham",
-//   "email": "Sincere@april.biz",
-//   "bio": "Assumenda
-//   "skills": ["react", "vue"],
-//   "isOpenToWork": true
-// },
-
 export class NewUserForm extends Component {
   state = {
     name: '',

@@ -10,7 +10,8 @@ import { UsersStats } from './components/UsersStats';
 
 export class Users extends Component {
   state = {
-    users: [],
+    search: '',
+    users: usersJson,
     isModalOpen: false,
   };
 
@@ -41,12 +42,20 @@ export class Users extends Component {
     });
   };
 
+  handleUpdateSearch = value => {
+    this.setState({ search: value });
+  };
+
   handleToggle = () => {
     this.setState(prevState => ({ isModalOpen: !prevState.isModalOpen }));
   };
 
   render() {
-    const { users, isModalOpen } = this.state;
+    const { users, search, isModalOpen } = this.state;
+
+    // name: 'Leanne Graham' includes 'leann' -> true;
+    // name: 'Leanne Graham' includes '' -> true;
+    const newUsers = users.filter(user => user.name.toLowerCase().includes(search.toLowerCase()));
 
     return (
       <>
@@ -64,9 +73,9 @@ export class Users extends Component {
           Create new user
         </button>
 
-        <UsersSearch />
-        <UsersStats users={users} />
-        <UsersList users={users} onDelete={this.handleDelete} />
+        <UsersSearch onSubmit={this.handleUpdateSearch} />
+        <UsersStats users={newUsers} />
+        <UsersList users={newUsers} onDelete={this.handleDelete} />
       </>
     );
   }
