@@ -24,7 +24,7 @@ export class Skills extends Component {
   //     const oldKey = Object.keys(prevState).find(key => prevState[key]);
 
   //     if (oldKey) {
-  //       return { oldKey: false, [event.target.value]: true };
+  //       return { [oldKey]: false, [event.target.value]: true };
   //     }
 
   //     return { [event.target.value]: true };
