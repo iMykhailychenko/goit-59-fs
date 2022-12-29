@@ -1,0 +1,17 @@
+@keyframes skeleton {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.skeleton {
+  width: 100%;
+  min-height: 8px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #eee, #a9a7a7, #eee);
+  background-size: 400% 400%;
+  animation: skeleton 2s ease infinite;
+}

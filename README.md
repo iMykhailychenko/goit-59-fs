@@ -68,3 +68,14 @@ https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 - Таймер і memory leak з setState() - розібрати componentWillUnmount
 - shouldComponentUpdate / PureComponent
 - Портали (опціонально)
+
+
+## Lesson 6 - 29/12/2022
+
+https://github.com/iMykhailychenko/goit-blog-backend
+
+- Методи життєвого циклу та HTTP-запити
+- Стан та компонент для індикатора завантаження
+- Стан та компонент для обробки помилки
+- Паттерн "State machine" для зберігання статусу запиту
+- Витік пам'яті при розмонтуванні компонента з активним запитом HTTP
