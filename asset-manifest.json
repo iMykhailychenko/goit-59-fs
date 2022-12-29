@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/goit-59-fs/static/css/main.65dda7fb.css",
+    "main.js": "/goit-59-fs/static/js/main.67aa8168.js",
+    "static/media/713761_big_8857bc5285.jpeg": "/goit-59-fs/static/media/713761_big_8857bc5285.4a8a759c1673e3abd7cb.jpeg",
+    "static/media/image.png": "/goit-59-fs/static/media/image.4c681b241e02299b56dc.png",
+    "index.html": "/goit-59-fs/index.html",
+    "main.65dda7fb.css.map": "/goit-59-fs/static/css/main.65dda7fb.css.map",
+    "main.67aa8168.js.map": "/goit-59-fs/static/js/main.67aa8168.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.65dda7fb.css",
+    "static/js/main.67aa8168.js"
+  ]
+}
