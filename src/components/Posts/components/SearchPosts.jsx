@@ -10,8 +10,10 @@ export class SearchPosts extends Component {
     this.setState({ value });
   };
 
-  handleSubmit = () => {
-    console.log('handleSubmit');
+  handleSubmit = event => {
+    event.preventDefault();
+
+    this.props.onSearch(this.state.value);
   };
 
   render() {

@@ -2,9 +2,7 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 import { cutString } from '../../../helpers/cut-string';
 
-import { post } from './utils';
-
-export const PostsItem = () => {
+export const PostsItem = ({ post }) => {
   return (
     <div className="col-12 col-md-6 col-xxl-4 mb-4">
       <div className="card">
