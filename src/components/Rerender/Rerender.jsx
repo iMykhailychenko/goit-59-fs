@@ -29,7 +29,6 @@ export class Rerender extends Component {
     return (
       <div className="d-flex flex-column justify-content-center align-items-center p-5 text-bg-dark rounded-3 mb-5">
         <h2>{counter}</h2>
-
         <Button label="Click me!" onClick={this.handleCount} />
       </div>
     );
