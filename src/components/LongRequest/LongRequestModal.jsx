@@ -3,6 +3,8 @@ import { Component } from 'react';
 import axios from 'axios';
 
 export class LongRequestModal extends Component {
+  controller = null;
+
   state = {
     isError: false,
     isLoading: false,
@@ -13,10 +15,20 @@ export class LongRequestModal extends Component {
     this.setState({ isLoading: true, isError: false });
 
     try {
-      await axios.get('http://70.34.201.18:8080/long');
+      this.controller = new AbortController();
+
+      await axios.get('http://70.34.201.18:8080/long', {
+        signal: this.controller,
+      });
       this.setState({ isDone: true, isLoading: false });
     } catch (err) {
       this.setState({ isError: true, isLoading: false });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.controller) {
+      this.controller.abort();
     }
   }
 
