@@ -79,3 +79,11 @@ https://github.com/iMykhailychenko/goit-blog-backend
 - Стан та компонент для обробки помилки
 - Паттерн "State machine" для зберігання статусу запиту
 - Витік пам'яті при розмонтуванні компонента з активним запитом HTTP
+
+
+## Lesson 7 - 10/01/2023
+
+- useState
+- useEffect (модалка)
+- Рефи і  useRef
+- Контекст і useContext
