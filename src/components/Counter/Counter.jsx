@@ -4,9 +4,22 @@ export const Counter = () => {
   const isInitRef = useRef(true);
 
   const [counter, setCounter] = useState(0);
+  const [counter1, setCounter1] = useState(0);
+  // const [total, setTotal] = useState(0);
+
+  // const countTotal = () => {
+  //   console.log('count in countTotal', counter); // 0
+  //   setTotal(counter + counter1);
+  // };
+
+  const total = counter + counter1;
+  console.log(total);
 
   const handleMinus = () => {
+    console.log('before setCounter', counter); // 0
     setCounter(prev => prev - 1);
+    console.log('after setCounter', counter); // 0
+    // countTotal();
   };
 
   const handlePlus = () => {
@@ -16,7 +29,7 @@ export const Counter = () => {
   useEffect(() => {
     if (!isInitRef.current) {
       // ...
-      console.log('useEffect with useRef');
+      // console.log('useEffect with useRef');
       // ...
     } else {
       isInitRef.current = false;
