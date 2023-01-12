@@ -11,15 +11,11 @@ import { SearchPosts } from './components/SearchPosts';
 export class Posts extends Component {
   state = {
     posts: null,
-    status: STATUS.idle, // 'idle', 'loading', 'success', 'error'
+    status: STATUS.idle,
     search: '',
   };
 
   componentDidMount() {
-    // axios.get('http://70.34.201.18:8080/posts').then(data => {
-    //   this.setState(data)
-    // });
-
     this.fetchData({ page: 1 });
   }
 

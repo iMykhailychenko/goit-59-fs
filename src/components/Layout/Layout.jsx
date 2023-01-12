@@ -2,7 +2,6 @@ import { PropTypes } from 'prop-types';
 
 import { useAuth } from '../../context/AuthContext';
 import { ConfettiContainer } from '../../helpers/Confetti/Confetti';
-import { EasterEgg } from '../../helpers/EasterEgg/EasterEgg';
 
 export const Layout = ({ children }) => {
   const { isAuth, login, logout } = useAuth();
@@ -15,12 +14,12 @@ export const Layout = ({ children }) => {
       >
         <div className="tab-pane fade show active">
           {isAuth ? (
-            <button onClick={logout} type="button">
-              logout
+            <button className="btn btn-danger" onClick={logout} type="button">
+              log out
             </button>
           ) : (
-            <button onClick={login} type="button">
-              login
+            <button className="btn btn-primary" onClick={login} type="button">
+              log in
             </button>
           )}
           {children}
@@ -28,7 +27,6 @@ export const Layout = ({ children }) => {
       </main>
 
       <ConfettiContainer />
-      <EasterEgg />
     </div>
   );
 };

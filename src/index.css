@@ -41,6 +41,10 @@ svg {
   min-height: 100vh;
 }
 
+.box {
+  max-width: 600px;
+}
+
 .card-title {
   overflow: hidden;
   white-space: nowrap;

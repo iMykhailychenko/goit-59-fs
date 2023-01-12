@@ -7,7 +7,9 @@ export const Header = ({ title }) => {
 
   return (
     <header className="pb-4">
-      {isAuth ? 'User authonticated' : 'User not loged in'}
+      <p className="my-4">
+        {isAuth ? 'User is authenticated' : 'Not loged in'}
+      </p>
       <h1>{title}</h1>
     </header>
   );

@@ -16,7 +16,6 @@ export const Timer = () => {
     clearInterval(timerId.current);
   };
 
-  // formatTime(3000) -> '00:03:000'
   return (
     <>
       <p className="h1 mb-4 text-center">{formatTime(time)}</p>

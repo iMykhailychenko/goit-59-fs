@@ -1,4 +1,4 @@
-import { Component, useEffect } from 'react';
+import { useEffect } from 'react';
 
 export const Modal = ({ children, onClose }) => {
   const handleClose = event => {

@@ -1,24 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 
-const lib = domElemnt => {
-  // console.log(domElemnt);
-};
-
 export const Counter = () => {
   const isInitRef = useRef(true);
-  const titleRef = useRef();
-  // console.log(titleRef);
-
-  useEffect(() => {
-    lib(titleRef.current);
-  }, []);
 
   const [counter, setCounter] = useState(0);
-  const [loader, setLoader] = useState(false);
 
   const handleMinus = () => {
     setCounter(prev => prev - 1);
-    setLoader(prev => !prev);
   };
 
   const handlePlus = () => {
@@ -35,15 +23,9 @@ export const Counter = () => {
     }
   }, [counter]);
 
-  useEffect(() => {
-    // console.log('useEffect withou useRef');
-  }, []);
-
   return (
-    <div className="mb-5 p-5 text-white bg-dark rounded-3">
-      <h2 ref={titleRef} className="text-center">
-        Counter
-      </h2>
+    <div className="mb-5 p-5 text-white bg-dark rounded-3 box">
+      <h2 className="text-center">Counter</h2>
       <p className="text-center my-5" style={{ fontSize: 80 }}>
         {counter}
       </p>
