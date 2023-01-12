@@ -87,3 +87,14 @@ https://github.com/iMykhailychenko/goit-blog-backend
 - useEffect (модалка)
 - Рефи і  useRef
 - Контекст і useContext
+
+
+## Lesson 8 - 12/01/2023
+
+- список юзерів + localStorage
+- useMemo і React.memo
+- useCallback
+- debounce пошукового запиту
+- Кастомні хуки
+- useReducer
+- Бібліотека react-use
