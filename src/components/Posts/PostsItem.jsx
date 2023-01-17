@@ -1,8 +1,16 @@
+import axios from 'axios';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { toast } from 'react-toastify';
 
-import { cutString } from '../../../helpers/cut-string';
+import { cutString } from '../../helpers/cut-string';
 
 export const PostsItem = ({ post }) => {
+  const deletePost = () => {
+    axios.delete('http://70.34.201.18:8080/posts/' + post.id).then(() => {
+      toast.success('Deleted');
+    });
+  };
+
   return (
     <div className="col-12 col-md-6 col-xxl-4 mb-4">
       <div className="card">
@@ -27,7 +35,11 @@ export const PostsItem = ({ post }) => {
           </ul>
 
           <div className="d-flex">
-            <button type="button" className="btn btn-danger">
+            <button
+              type="button"
+              onClick={deletePost}
+              className="btn btn-danger"
+            >
               Delete post
             </button>
 

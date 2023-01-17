@@ -1,22 +1,32 @@
-// import { Counter } from './components/Counter/Counter';
 import { Header } from './components/Layout/Header/Header';
 import { Layout } from './components/Layout/Layout';
-import { Posts } from './components/Posts/Posts';
-// import { Rerender } from './components/Rerender/Rerender';
-// import { UsersList } from './components/Users/UsersList';
-import { AuthContextProvider } from './context/AuthContext';
+// import CounterPage from './pages/ExercisesPage/CounterPage/CounterPage';
+// import ExercisesPage from './pages/ExercisesPage/ExercisesPage';
+// import LongRequestPage from './pages/ExercisesPage/LongRequestPage/LongRequestPage';
+// import RerenderPage from './pages/ExercisesPage/RerenderPage/RerenderPage';
+// import TimerPage from './pages/ExercisesPage/TimerPage/TimerPage';
+import HomePage from './pages/HomePage/HomePage';
+// import NewPostPage from './pages/NewPostPage/NewPostPage';
+// import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+// import PostsListPage from './pages/PostsListPage/PostsListPage';
+// import SinglePostPage from './pages/SinglePostPage/SinglePostPage';
 
 export const App = () => {
   return (
-    <AuthContextProvider>
-      <Layout>
-        <Header title="Hello world!" />
+    <Layout>
+      <Header title="Hello world!" />
 
-        {/* <Counter /> */}
-        {/* <UsersList /> */}
-        {/* <Rerender /> */}
-        <Posts />
-      </Layout>
-    </AuthContextProvider>
+      <HomePage />
+      {/* <PostsListPage /> */}
+      {/* <SinglePostPage /> */}
+      {/* <NotFoundPage /> */}
+      {/* <NewPostPage /> */}
+
+      {/* <ExercisesPage /> */}
+      {/* <CounterPage /> */}
+      {/* <LongRequestPage /> */}
+      {/* <RerenderPage /> */}
+      {/* <TimerPage /> */}
+    </Layout>
   );
 };

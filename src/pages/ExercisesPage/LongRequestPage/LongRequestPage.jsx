@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-export class LongRequestModal extends Component {
+class LongRequestPage extends Component {
   state = {
     isError: false,
     isLoading: false,
@@ -37,3 +37,5 @@ export class LongRequestModal extends Component {
     );
   }
 }
+
+export default LongRequestPage;
