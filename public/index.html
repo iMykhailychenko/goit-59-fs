@@ -9,6 +9,12 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
@@ -17,12 +23,6 @@
       crossorigin="anonymous"
     />
 
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -33,61 +33,40 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+
+    <!-- Start Single Page Apps for GitHub Pages -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script checks to see if a redirect is present in the query string,
+      // converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash,
+          );
+        }
+      })(window.location);
+    </script>
+    <!-- End Single Page Apps for GitHub Pages -->
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-
-    <script>
-      const consoleimg = (function () {
-        return {
-          load: function (i, { size: s = 100, color: c = 'transparent' } = {}) {
-            const r = new FileReader();
-            r.addEventListener(
-              'load',
-              function () {
-                /* Format the CSS string for console.log */
-                const o =
-                  "background: url('" +
-                  r.result +
-                  "') left top no-repeat; font-size: " +
-                  s +
-                  'px; background-size: contain; background-color:' +
-                  c;
-                /* Output to the console. */
-                console.log('%c     ', o);
-              },
-              false,
-            );
-            fetch(i)
-              /* Return the data as a blob. */
-              .then(r => r.blob())
-              .then(b => {
-                /* Only proceed if the blob is an image. */
-                if (b.type.indexOf('image') === 0) {
-                  /* Warn if larger than the 8KB that Firefox allows. */
-                  if (
-                    b.size > 8192 &&
-                    navigator.userAgent.indexOf('Firefox') > 0
-                  ) {
-                    throw new Error(
-                      'Image size too big to be displayed in Firefox.',
-                    );
-                  }
-                  return b;
-                } else {
-                  /* Warn if the blob is not an image. */
-                  throw new Error('Valid image not found.');
-                }
-              })
-              /* Read the blob as base64. */
-              .then(i => r.readAsDataURL(i))
-              .catch(e => console.warn(e.message));
-          },
-        };
-      })();
-
-      consoleimg.load('%PUBLIC_URL%/img.jpg');
-    </script>
   </body>
 </html>
