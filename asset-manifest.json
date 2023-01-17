@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/goit-59-fs/static/css/main.65dda7fb.css",
-    "main.js": "/goit-59-fs/static/js/main.67aa8168.js",
+    "main.css": "/goit-59-fs/static/css/main.55499569.css",
+    "main.js": "/goit-59-fs/static/js/main.c44bc22d.js",
+    "static/media/pulp-fiction-john-travolta.gif": "/goit-59-fs/static/media/pulp-fiction-john-travolta.59b46f4510af6cc07976.gif",
     "static/media/713761_big_8857bc5285.jpeg": "/goit-59-fs/static/media/713761_big_8857bc5285.4a8a759c1673e3abd7cb.jpeg",
-    "static/media/image.png": "/goit-59-fs/static/media/image.4c681b241e02299b56dc.png",
     "index.html": "/goit-59-fs/index.html",
-    "main.65dda7fb.css.map": "/goit-59-fs/static/css/main.65dda7fb.css.map",
-    "main.67aa8168.js.map": "/goit-59-fs/static/js/main.67aa8168.js.map"
+    "main.55499569.css.map": "/goit-59-fs/static/css/main.55499569.css.map",
+    "main.c44bc22d.js.map": "/goit-59-fs/static/js/main.c44bc22d.js.map"
   },
   "entrypoints": [
-    "static/css/main.65dda7fb.css",
-    "static/js/main.67aa8168.js"
+    "static/css/main.55499569.css",
+    "static/js/main.c44bc22d.js"
   ]
 }
