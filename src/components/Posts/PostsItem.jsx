@@ -1,5 +1,6 @@
 import axios from 'axios';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { cutString } from '../../helpers/cut-string';
@@ -43,9 +44,9 @@ export const PostsItem = ({ post }) => {
               Delete post
             </button>
 
-            <a href={`/posts/${post.id}`} className="btn btn-primary ms-3">
+            <Link to={`${post.id}`} className="btn btn-primary ms-3">
               Read post
-            </a>
+            </Link>
           </div>
         </div>
       </div>

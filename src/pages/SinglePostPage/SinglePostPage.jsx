@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 
 import axios from 'axios';
+import { useParams, Link, Outlet } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { Loader } from '../../components/Loader/Loader';
 
 const SinglePostPage = () => {
   // TODO change to dynamic value
-  const postId = 10;
+  // const postId = 10;
+  const { postId } = useParams();
 
   const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -46,9 +48,11 @@ const SinglePostPage = () => {
           }}
         />
 
-        <a href={`/posts/${postId}/comments`} className="btn btn-primary my-4">
+        <Link to="comments" className="btn btn-primary my-4">
           Vew post comments
-        </a>
+        </Link>
+
+        <Outlet />
       </>
     )
   );

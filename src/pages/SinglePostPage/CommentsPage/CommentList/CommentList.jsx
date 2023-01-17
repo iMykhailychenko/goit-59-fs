@@ -1,18 +1,19 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import { formatDistance } from 'date-fns';
 import { toast } from 'react-toastify';
 
 export const CommentList = ({ comments, setComments }) => {
   // TODO change to dynamic value
-  const postId = 10;
+  const { postId } = useParams();
 
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchComments = useCallback(() => {
-    axios
-      .get(`http://70.34.201.18:8000/posts/${postId}/comments`)
+    return axios
+      .get(`http://70.34.201.18:8080/posts/${postId}/comments`)
       .then(setComments)
       .catch(() => {
         toast.error('Something went wrong!');

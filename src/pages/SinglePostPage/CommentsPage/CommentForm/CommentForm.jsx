@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
-import { createNewCommentService } from 'services/comments.service';
 
 export const CommentForm = ({ setComments }) => {
   // TODO change to dynamic value
@@ -23,16 +22,16 @@ export const CommentForm = ({ setComments }) => {
     }
 
     setIsLoading(true);
-    createNewCommentService(postId, { content })
-      .then(data => {
-        toast.success('You have successfully created a new comment!');
-        setComments(prev => ({ ...prev, data: [data, ...prev.data] }));
-        handleReset();
-      })
-      .catch(() => {
-        toast.error('Something went wrong!');
-      })
-      .finally(() => setIsLoading(false));
+    // createNewCommentService(postId, { content })
+    //   .then(data => {
+    //     toast.success('You have successfully created a new comment!');
+    //     setComments(prev => ({ ...prev, data: [data, ...prev.data] }));
+    //     handleReset();
+    //   })
+    //   .catch(() => {
+    //     toast.error('Something went wrong!');
+    //   })
+    //   .finally(() => setIsLoading(false));
   };
 
   return (
@@ -48,7 +47,13 @@ export const CommentForm = ({ setComments }) => {
         />
       </label>
 
-      <button type="submit" className={classNames('btn btn-primary my-2', isLoading ? 'disabled' : '')}>
+      <button
+        type="submit"
+        className={classNames(
+          'btn btn-primary my-2',
+          isLoading ? 'disabled' : '',
+        )}
+      >
         {isLoading && <span className="spinner-grow spinner-grow-sm mr-2" />}
         Submit
       </button>

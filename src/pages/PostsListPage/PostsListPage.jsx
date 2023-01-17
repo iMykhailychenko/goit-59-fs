@@ -7,6 +7,7 @@ import { PostsItem } from '../../components/Posts/PostsItem';
 import { PostsLoader } from '../../components/Posts/PostsLoader';
 import { STATUS } from '../../constants/status.constants';
 import { getPosts } from '../../services/posts.service';
+import axios from 'axios';
 
 const PostsListPage = () => {
   const [posts, setPosts] = useState(null);
@@ -37,6 +38,17 @@ const PostsListPage = () => {
   useEffect(() => {
     fetchData({ page: 1 });
   }, []);
+
+  // useEffect(() => {
+  //   const myFunc = async () => {
+  //     // try {
+  //     // const data = await ....
+  //     // }
+  //   };
+
+  //   myFunc();
+  //   axios.get('...').then(data).catch().finally()
+  // }, []);
 
   return (
     <>
