@@ -57,8 +57,12 @@ svg {
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 100;
   width: 100%;
   background: #fff;
   border-top: 1px solid #000;
+}
+
+.nav-btn {
+  margin-left: -10px;
+  text-align: left;
 }

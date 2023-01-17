@@ -1,8 +1,19 @@
+import axios from 'axios';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-import { cutString } from '../../../helpers/cut-string';
+import { cutString } from '../../helpers/cut-string';
 
 export const PostsItem = ({ post }) => {
+  const deletePost = () => {
+    axios
+      .delete('https://taupe-croissant-c4162a.netlify.app/api/posts/' + post.id)
+      .then(() => {
+        toast.success('Deleted');
+      });
+  };
+
   return (
     <div className="col-12 col-md-6 col-xxl-4 mb-4">
       <div className="card">
@@ -27,13 +38,17 @@ export const PostsItem = ({ post }) => {
           </ul>
 
           <div className="d-flex">
-            <button type="button" className="btn btn-danger">
+            <button
+              type="button"
+              onClick={deletePost}
+              className="btn btn-danger"
+            >
               Delete post
             </button>
 
-            <a href={`/posts/${post.id}`} className="btn btn-primary ms-3">
+            <Link to={`${post.id}`} className="btn btn-primary ms-3">
               Read post
-            </a>
+            </Link>
           </div>
         </div>
       </div>

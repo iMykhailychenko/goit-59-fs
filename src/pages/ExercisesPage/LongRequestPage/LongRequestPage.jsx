@@ -1,8 +1,6 @@
 import { Component } from 'react';
 
-import axios from 'axios';
-
-export class LongRequestModal extends Component {
+class LongRequestPage extends Component {
   state = {
     isError: false,
     isLoading: false,
@@ -12,12 +10,13 @@ export class LongRequestModal extends Component {
   async componentDidMount() {
     this.setState({ isLoading: true, isError: false });
 
-    try {
-      await axios.get('http://70.34.201.18:8080/long');
-      this.setState({ isDone: true, isLoading: false });
-    } catch (err) {
-      this.setState({ isError: true, isLoading: false });
-    }
+    // TODO fetch https://taupe-croissant-c4162a.netlify.app/api/long
+    // if ok      -> this.setState({ isDone: true, isLoading: false });
+    // if error   -> this.setState({ isError: true, isLoading: false });
+  }
+
+  componentWillUnmount() {
+    // TODO
   }
 
   render() {
@@ -38,3 +37,5 @@ export class LongRequestModal extends Component {
     );
   }
 }
+
+export default LongRequestPage;

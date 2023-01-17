@@ -1,54 +1,49 @@
-import { Component } from 'react';
+import { useEffect } from 'react';
 
-export class Modal extends Component {
-  componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyClose);
-  }
+export const Modal = ({ children, onClose }) => {
+  useEffect(() => {
+    const handleKeyClose = event => {
+      if (event.code === 'Escape') {
+        onClose();
+      }
+    };
 
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyClose);
-  }
+    window.addEventListener('keydown', handleKeyClose);
 
-  handleKeyClose = event => {
-    if (event.code === 'Escape') {
-      this.props.onClose();
-    }
-  };
+    return () => {
+      window.removeEventListener('keydown', handleKeyClose);
+    };
+  }, [onClose]);
 
-  handleClose = event => {
+  const handleBackdropClick = event => {
     if (event.target === event.currentTarget) {
-      this.props.onClose();
+      onClose();
     }
   };
 
-  render() {
-    const { children, onClose } = this.props;
-    return (
-      <>
-        <div className="modal-backdrop fade show" />
-
-        <div
-          className="modal fade show"
-          style={{ display: 'block' }}
-          onClick={this.handleClose}
-        >
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Modal title</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  aria-label="Close"
-                  onClick={onClose}
-                />
-              </div>
-
-              <div className="modal-body">{children}</div>
+  return (
+    <>
+      <div className="modal-backdrop fade show" />
+      <div
+        className="modal fade show"
+        style={{ display: 'block' }}
+        onClick={handleBackdropClick}
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Modal title</h5>
+              <button
+                type="button"
+                className="btn-close"
+                aria-label="Close"
+                onClick={onClose}
+              />
             </div>
+            <div className="modal-body">{children}</div>
           </div>
         </div>
-      </>
-    );
-  }
-}
+      </div>
+    </>
+  );
+};

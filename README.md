@@ -19,7 +19,6 @@
 - React strict mode
 - Аліаси та абсолютні імпорти
 
-
 ## Lesson 2 - 15/12/2022
 
 - Ванільний CSS
@@ -29,7 +28,6 @@
 - CSS in JS із бібліотекою styled-components
 - Бібліотеки clsx / classNames
 - Бібліотека react-icons
-
 
 ## Lesson 3 - 20/12/2022
 
@@ -42,33 +40,30 @@
 - Підйом стану
 - Обчислювані властивості
 
-
 ## Lesson 4 - 22/12/2022
 
 - Неконтрольовані елементи
 - Паттерн controlled element
 - Створюємо форму реєстрації
 - Форми та робота з input, checkbox, radio, select
-- Генерація id для елементів форми  
+- Генерація id для елементів форми
 - Робота зі списком юзерів
 - Рендер списку
 - Видалення юзера
 - фільтрація за вмістом (текст)
-
 
 ## Lesson 5 - 27/12/2022
 
 Графік:
 https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
-- Життєвий цикл компонента. 
+- Життєвий цикл компонента.
 - Методи життєвого циклу компонент-класів.
 - Збереження колекції юзерів в localStorage (componentDidMount та componentDidUpdate)
 - Модальне вікно (componentDidMount та componentWillUnmount)
 - Таймер і memory leak з setState() - розібрати componentWillUnmount
 - shouldComponentUpdate / PureComponent
 - Портали (опціонально)
-
 
 ## Lesson 6 - 29/12/2022
 
@@ -79,3 +74,32 @@ https://github.com/iMykhailychenko/goit-blog-backend
 - Стан та компонент для обробки помилки
 - Паттерн "State machine" для зберігання статусу запиту
 - Витік пам'яті при розмонтуванні компонента з активним запитом HTTP
+
+## Lesson 7 - 10/01/2023
+
+- useState
+- useEffect (модалка)
+- Рефи і useRef
+- Контекст і useContext
+
+## Lesson 8 - 12/01/2023
+
+- список юзерів + localStorage
+- useMemo і React.memo
+- useCallback
+- debounce пошукового запиту
+- Кастомні хуки
+- useReducer
+- Бібліотека react-use
+
+## Lesson 9 - 17/01/2023
+
+https://miro.com/app/board/uXjVPxI6iaM=/?share_link_id=481867053248
+
+- Концепція SPA (Single Page Application) та CSR (Client Side Rendering)
+- Структура url-адреси та HTML5 History API https://textbook.edu.goit.global/react-zr7b4k/v1/uk/img/lesson-09/url-string.jpg
+- Бібліотека react-router-dom https://reactrouter.com/en/main
+- Компоненти BrowserRouter, Routes, Route
+- Компоненти Link та NavLink
+- Динамічні URL-параметри / useParams
+- Вкладені маршрути та навігація

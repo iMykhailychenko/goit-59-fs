@@ -1,4 +1,4 @@
-import { Skeleton } from '../../Skeleton/Skeleton';
+import { Skeleton } from '../Skeleton/Skeleton';
 
 export const PostsLoader = ({ amount = 9 }) => {
   return (
