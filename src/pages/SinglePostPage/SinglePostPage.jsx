@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
 import axios from 'axios';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { Loader } from '../../components/Loader/Loader';
 
 const SinglePostPage = () => {
-  // TODO change to dynamic value
-  // const postId = 10;
   const { postId } = useParams();
+  const location = useLocation();
+  console.log(location);
 
   const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +17,6 @@ const SinglePostPage = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    // TODO create service
     axios
       .get('http://70.34.201.18:8080/posts/' + postId)
       .then(({ data }) => setPost(data))
@@ -34,6 +33,10 @@ const SinglePostPage = () => {
   return (
     post && (
       <>
+        <Link to={location.state?.from ?? '/posts'} className="mb-4">
+          Back
+        </Link>
+
         <img
           src={post.image}
           alt={post.title}
@@ -48,7 +51,11 @@ const SinglePostPage = () => {
           }}
         />
 
-        <Link to="comments" className="btn btn-primary my-4">
+        <Link
+          to="comments"
+          className="btn btn-primary my-4"
+          state={{ from: location.state?.from }}
+        >
           Vew post comments
         </Link>
 

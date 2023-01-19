@@ -1,6 +1,7 @@
-import { useMemo, useEffect, useState } from 'react';
+import { useMemo, useEffect, useState, useCallback } from 'react';
 
 import debounce from 'lodash/debounce';
+import { useSearchParams } from 'react-router-dom';
 
 import { NotFound } from '../../components/NotFound/NotFound';
 import { PostsItem } from '../../components/Posts/PostsItem';
@@ -11,23 +12,18 @@ import { getPosts } from '../../services/posts.service';
 const PostsListPage = () => {
   const [posts, setPosts] = useState(null);
   const [status, setStatus] = useState(STATUS.idle);
-  const [search, setSearch] = useState('');
 
-  const fetchData = async ({ page = 1, query = '' }) => {
-    setStatus(STATUS.loading);
-    try {
-      const data = await getPosts({ page, search: query });
-      setPosts(data);
-      setStatus(STATUS.success);
-    } catch (error) {
-      console.log(error);
-      setStatus(STATUS.error);
-    }
-  };
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get('page') ?? 1;
+  const searchQuery = searchParams.get('search') ?? '';
+
+  const [search, setSearch] = useState(searchQuery);
 
   const searchPosts = useMemo(() => {
-    return debounce(query => fetchData({ query }), 500);
-  }, []);
+    return debounce(search => {
+      setSearchParams({ page: 1, search }); // localhost.../?page=1&search=javascript
+    }, 500);
+  }, [setSearchParams]);
 
   const handleSearch = event => {
     setSearch(event.target.value);
@@ -35,19 +31,20 @@ const PostsListPage = () => {
   };
 
   useEffect(() => {
-    fetchData({ page: 1 });
-  }, []);
+    const fetchData = async params => {
+      setStatus(STATUS.loading);
+      try {
+        const data = await getPosts(params);
+        setPosts(data);
+        setStatus(STATUS.success);
+      } catch (error) {
+        console.log(error);
+        setStatus(STATUS.error);
+      }
+    };
 
-  // useEffect(() => {
-  //   const myFunc = async () => {
-  //     // try {
-  //     // const data = await ....
-  //     // }
-  //   };
-
-  //   myFunc();
-  //   axios.get('...').then(data).catch().finally()
-  // }, []);
+    fetchData({ page, search: searchQuery });
+  }, [page, searchQuery]);
 
   return (
     <>
@@ -75,21 +72,20 @@ const PostsListPage = () => {
         <div className="pagination">
           <div className="btn-group my-2 mx-auto btn-group-lg">
             {[...Array(posts.total_pages)].map((_, index) => {
-              const page = index + 1;
+              const innerPage = index + 1;
 
               return (
                 <button
                   key={index}
                   type="button"
-                  disabled={page === posts.page}
+                  disabled={innerPage === posts.page}
                   className="btn btn-primary"
                   onClick={() => {
-                    if (page !== posts.page) {
-                      fetchData({ page, query: search });
-                    }
+                    // setSearchParams({ page: 2, data: 'data', test: 'test' }); // '?page=2&data=data&test=test'
+                    setSearchParams({ page: innerPage, search: searchQuery });
                   }}
                 >
-                  {page}
+                  {innerPage}
                 </button>
               );
             })}
