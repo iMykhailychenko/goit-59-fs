@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useState, useCallback } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 
 import debounce from 'lodash/debounce';
 import { useSearchParams } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -12,7 +12,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
 
   // ...
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isLoggedIn = false;
 
   const handleChange = event => {
     const { value, name } = event.target;
