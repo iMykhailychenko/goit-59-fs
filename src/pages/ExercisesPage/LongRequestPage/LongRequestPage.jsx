@@ -10,7 +10,7 @@ class LongRequestPage extends Component {
   async componentDidMount() {
     this.setState({ isLoading: true, isError: false });
 
-    // TODO fetch https://taupe-croissant-c4162a.netlify.app/api/long
+    // TODO fetch http://70.34.201.18:8080/long
     // if ok      -> this.setState({ isDone: true, isLoading: false });
     // if error   -> this.setState({ isError: true, isLoading: false });
   }

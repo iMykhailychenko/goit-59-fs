@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { NavLink, Outlet } from 'react-router-dom';
 
 const ExercisesPage = () => {
@@ -29,7 +31,9 @@ const ExercisesPage = () => {
         </li>
       </ul>
 
-      <Outlet />
+      <Suspense fallback={<p>Loading inside ExercisesPage...</p>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

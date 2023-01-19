@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const postsApi = axios.create({
-  baseURL: 'https://taupe-croissant-c4162a.netlify.app/api',
+  baseURL: 'http://70.34.201.18:8080',
 });
 
 export const getPosts = async (params = {}) => {

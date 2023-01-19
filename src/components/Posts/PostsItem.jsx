@@ -1,17 +1,17 @@
 import axios from 'axios';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { cutString } from '../../helpers/cut-string';
 
 export const PostsItem = ({ post }) => {
+  const location = useLocation();
+
   const deletePost = () => {
-    axios
-      .delete('https://taupe-croissant-c4162a.netlify.app/api/posts/' + post.id)
-      .then(() => {
-        toast.success('Deleted');
-      });
+    axios.delete('http://70.34.201.18:8080/posts/' + post.id).then(() => {
+      toast.success('Deleted');
+    });
   };
 
   return (
@@ -46,7 +46,11 @@ export const PostsItem = ({ post }) => {
               Delete post
             </button>
 
-            <Link to={`${post.id}`} className="btn btn-primary ms-3">
+            <Link
+              to={`${post.id}`}
+              className="btn btn-primary ms-3"
+              state={{ from: location }}
+            >
               Read post
             </Link>
           </div>

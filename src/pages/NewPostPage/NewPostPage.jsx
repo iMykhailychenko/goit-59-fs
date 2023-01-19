@@ -35,7 +35,7 @@ const NewPostPage = () => {
     setIsLoading(true);
 
     axios
-      .post('https://taupe-croissant-c4162a.netlify.app/api/posts', form)
+      .post('http://70.34.201.18:8080/posts', form)
       .then(() => {
         toast.success('You have successfully created a new post!');
       })

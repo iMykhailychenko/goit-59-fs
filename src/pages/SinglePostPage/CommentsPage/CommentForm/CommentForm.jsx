@@ -24,10 +24,7 @@ export const CommentForm = ({ setComments }) => {
 
     setIsLoading(true);
     axios
-      .post(
-        `https://taupe-croissant-c4162a.netlify.app/api/posts/${postId}/comments`,
-        { content },
-      )
+      .post(`http://70.34.201.18:8080/posts/${postId}/comments`, { content })
       .then(data => {
         toast.success('You have successfully created a new comment!');
         setComments(prev => ({ ...prev, data: [data, ...prev.data] }));

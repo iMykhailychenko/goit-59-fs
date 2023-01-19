@@ -24,6 +24,7 @@
     "prefer-template": "off",
     "no-alert": "off",
     "no-console": "off",
+    "no-shadow": "off",
     "react/jsx-fragments": "off",
     "function-paren-newline": "off",
     "implicit-arrow-linebreak": "off",
