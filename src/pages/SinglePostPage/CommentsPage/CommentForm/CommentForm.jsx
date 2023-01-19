@@ -24,7 +24,9 @@ export const CommentForm = ({ setComments }) => {
 
     setIsLoading(true);
     axios
-      .post(`http://70.34.201.18:8080/posts/${postId}/comments`, { content })
+      .post(`https://goit-fs.netlify.app/api/posts/${postId}/comments`, {
+        content,
+      })
       .then(data => {
         toast.success('You have successfully created a new comment!');
         setComments(prev => ({ ...prev, data: [data, ...prev.data] }));

@@ -18,7 +18,7 @@ const SinglePostPage = () => {
     setIsLoading(true);
 
     axios
-      .get('http://70.34.201.18:8080/posts/' + postId)
+      .get('https://goit-fs.netlify.app/api/posts/' + postId)
       .then(({ data }) => setPost(data))
       .catch(() => {
         toast.error('Something went wrong!');

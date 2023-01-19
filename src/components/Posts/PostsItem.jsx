@@ -9,9 +9,11 @@ export const PostsItem = ({ post }) => {
   const location = useLocation();
 
   const deletePost = () => {
-    axios.delete('http://70.34.201.18:8080/posts/' + post.id).then(() => {
-      toast.success('Deleted');
-    });
+    axios
+      .delete('https://goit-fs.netlify.app/api/posts/' + post.id)
+      .then(() => {
+        toast.success('Deleted');
+      });
   };
 
   return (
