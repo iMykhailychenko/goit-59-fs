@@ -103,3 +103,11 @@ https://miro.com/app/board/uXjVPxI6iaM=/?share_link_id=481867053248
 - Компоненти Link та NavLink
 - Динамічні URL-параметри / useParams
 - Вкладені маршрути та навігація
+
+## Lesson 10 - 19/01/2023
+
+- Програмна навігація з використанням useNavigate
+- Компонент Navigate
+- query params / useSearchParams
+- Об'єкт місцезнаходження / useLocation / state
+- Розділення коду / React.lazy / React.Suspense та fallback
