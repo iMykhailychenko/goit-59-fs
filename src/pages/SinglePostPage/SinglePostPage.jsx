@@ -19,7 +19,7 @@ const SinglePostPage = () => {
 
     // TODO create service
     axios
-      .get('https://taupe-croissant-c4162a.netlify.app/api/posts/' + postId)
+      .get('http://70.34.201.18:8080/posts/' + postId)
       .then(({ data }) => setPost(data))
       .catch(() => {
         toast.error('Something went wrong!');

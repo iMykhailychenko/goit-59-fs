@@ -7,11 +7,9 @@ import { cutString } from '../../helpers/cut-string';
 
 export const PostsItem = ({ post }) => {
   const deletePost = () => {
-    axios
-      .delete('https://taupe-croissant-c4162a.netlify.app/api/posts/' + post.id)
-      .then(() => {
-        toast.success('Deleted');
-      });
+    axios.delete('http://70.34.201.18:8080/posts/' + post.id).then(() => {
+      toast.success('Deleted');
+    });
   };
 
   return (

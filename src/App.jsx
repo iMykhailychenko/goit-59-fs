@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import { Header } from './components/Layout/Header/Header';
 import { Layout } from './components/Layout/Layout';
 import CounterPage from './pages/ExercisesPage/CounterPage/CounterPage';
 import ExercisesPage from './pages/ExercisesPage/ExercisesPage';
@@ -8,6 +7,7 @@ import LongRequestPage from './pages/ExercisesPage/LongRequestPage/LongRequestPa
 import RerenderPage from './pages/ExercisesPage/RerenderPage/RerenderPage';
 import TimerPage from './pages/ExercisesPage/TimerPage/TimerPage';
 import HomePage from './pages/HomePage/HomePage';
+import LoginPage from './pages/LoginPage/LoginPage';
 import NewPostPage from './pages/NewPostPage/NewPostPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import PostsListPage from './pages/PostsListPage/PostsListPage';
@@ -18,10 +18,10 @@ export const App = () => {
   return (
     <BrowserRouter basename="goit-59-fs">
       <Layout>
-        <Header title="Hello world!" />
-
         <Routes>
           <Route path="" element={<HomePage />} />
+
+          <Route path="/login" element={<LoginPage />} />
 
           <Route path="/posts" element={<PostsListPage />} />
 
