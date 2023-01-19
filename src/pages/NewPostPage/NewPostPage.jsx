@@ -35,7 +35,7 @@ const NewPostPage = () => {
     setIsLoading(true);
 
     axios
-      .post('http://70.34.201.18:8080/posts', form)
+      .post('https://goit-fs.netlify.app/api/posts', form)
       .then(() => {
         toast.success('You have successfully created a new post!');
       })
