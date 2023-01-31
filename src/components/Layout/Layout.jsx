@@ -1,6 +1,6 @@
 import { ToastContainer } from 'react-toastify';
 
-import { ConfettiContainer } from '../Confetti/Confetti';
+import { ConfettiContainer } from '../../helpers/Confetti';
 
 import { Sidebar } from './Sidebar/Sidebar';
 

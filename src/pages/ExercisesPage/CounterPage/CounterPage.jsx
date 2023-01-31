@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { counterAction } from '../../../redux/counter/counter.action';
 
 const CounterPage = () => {
-  const [counter, setCounter] = useState(0);
+  const dispatch = useDispatch();
+  const counter = useSelector(state => state.counter);
 
   const handleMinus = () => {
-    setCounter(prev => prev - 1);
+    dispatch(counterAction(-1));
   };
 
   const handlePlus = () => {
-    setCounter(prev => prev + 1);
+    dispatch(counterAction(1));
   };
 
   return (

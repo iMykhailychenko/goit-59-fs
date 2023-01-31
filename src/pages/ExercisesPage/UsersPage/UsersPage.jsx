@@ -1,21 +1,33 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
-import usersJson from '../../../assets/users.json';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { NotFound } from '../../../components/NotFound/NotFound';
 import { confetti } from '../../../helpers/Confetti/Confetti';
+import {
+  deleteUserAction,
+  usersSearchAction,
+} from '../../../redux/users/users.actions';
 
 import { UsersItem } from './UsersItem';
 
 const UsersPage = () => {
-  const [search, setSearch] = useState('');
+  const dispatch = useDispatch();
+
+  const search = useSelector(state => state.users.search);
+  const users = useSelector(state => state.users.data);
+
   const handleSearch = event => {
-    setSearch(event.target.value);
+    dispatch(
+      usersSearchAction(
+        event.target.value,
+      ) /* -> { type: SEARCH, payload: event.target.value } */,
+    );
   };
 
-  const [users, setUsers] = useState(usersJson);
   const handleDelete = id => {
+    dispatch(deleteUserAction(id));
     confetti.run();
-    setUsers(prev => prev.filter(user => user.id !== id));
   };
 
   const filteredUsers = useMemo(() => {
