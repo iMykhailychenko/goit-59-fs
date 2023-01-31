@@ -29,6 +29,12 @@ const ExercisesPage = () => {
             Re-render
           </NavLink>
         </li>
+
+        <li className="nav-item">
+          <NavLink className="nav-link" to="users">
+            Users list
+          </NavLink>
+        </li>
       </ul>
 
       <Suspense fallback={<p>Loading inside ExercisesPage...</p>}>

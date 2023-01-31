@@ -3,19 +3,16 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import { Layout } from './components/Layout/Layout';
-// import CounterPage from './pages/ExercisesPage/CounterPage/CounterPage';
-// import ExercisesPage from './pages/ExercisesPage/ExercisesPage';
-// import LongRequestPage from './pages/ExercisesPage/LongRequestPage/LongRequestPage';
-// import RerenderPage from './pages/ExercisesPage/RerenderPage/RerenderPage';
-// import TimerPage from './pages/ExercisesPage/TimerPage/TimerPage';
-// import HomePage from './pages/HomePage/HomePage';
-import LoginPage from './pages/LoginPage/LoginPage';
-import NewPostPage from './pages/NewPostPage/NewPostPage';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-// import PostsListPage from './pages/PostsListPage/PostsListPage';
-import CommentsPage from './pages/SinglePostPage/CommentsPage/CommentsPage';
-import SinglePostPage from './pages/SinglePostPage/SinglePostPage';
 
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
+const NewPostPage = lazy(() => import('./pages/NewPostPage/NewPostPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
+const CommentsPage = lazy(() =>
+  import('./pages/SinglePostPage/CommentsPage/CommentsPage'),
+);
+const SinglePostPage = lazy(() =>
+  import('./pages/SinglePostPage/SinglePostPage'),
+);
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const ExercisesPage = lazy(() => import('./pages/ExercisesPage/ExercisesPage'));
 const LongRequestPage = lazy(() =>
@@ -29,6 +26,9 @@ const TimerPage = lazy(() =>
 );
 const CounterPage = lazy(() =>
   import('./pages/ExercisesPage/CounterPage/CounterPage'),
+);
+const UsersPage = lazy(() =>
+  import('./pages/ExercisesPage/UsersPage/UsersPage'),
 );
 const PostsListPage = lazy(() => import('./pages/PostsListPage/PostsListPage'));
 
@@ -53,11 +53,12 @@ export const App = () => {
             <Route path="/post-new" element={<NewPostPage />} />
 
             <Route path="/exercises" element={<ExercisesPage />}>
-              {/* <Route index element={<Navigate to="timer" />} /> */}
+              <Route index element={<Navigate to="timer" />} />
               <Route path="timer" element={<TimerPage />} />
               <Route path="long-request" element={<LongRequestPage />} />
               <Route path="counter" element={<CounterPage />} />
               <Route path="re-render" element={<RerenderPage />} />
+              <Route path="users" element={<UsersPage />} />
             </Route>
 
             <Route path="*" element={<NotFoundPage />} />

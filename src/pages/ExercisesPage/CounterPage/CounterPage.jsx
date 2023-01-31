@@ -1,21 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const CounterPage = () => {
   const [counter, setCounter] = useState(0);
 
   const handleMinus = () => {
-    console.log('before setCounter', counter); // 0
     setCounter(prev => prev - 1);
-    console.log('after setCounter', counter); // 0
   };
 
   const handlePlus = () => {
     setCounter(prev => prev + 1);
   };
-
-  useEffect(() => {
-    console.log('useEffect');
-  }, [counter]);
 
   return (
     <div className="mb-5 p-5 text-white bg-dark rounded-3 box">
