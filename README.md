@@ -111,3 +111,25 @@ https://miro.com/app/board/uXjVPxI6iaM=/?share_link_id=481867053248
 - query params / useSearchParams
 - Об'єкт місцезнаходження / useLocation / state
 - Розділення коду / React.lazy / React.Suspense та fallback
+
+## Lesson 11 - 31/01/2023
+
+- Основні концепції: store, state, actions, reducers
+- Створюємо та налаштовуємо сховище
+- Пакет react-redux
+- Компонент Provider
+- Пишемо редюсер
+- Готуємо екшени
+- Хуки useDispatch і useSelector
+- Redux DevTools
+- Композиція редюсерів з combineReducers
+- Feature based структура файлів та папок
+
+## Lesson 12 - 4/11/2023
+
+- Розбираємо Redux Toolkit та рефакторимо код попереднього заняття
+- configureStore()
+- createReducer()
+- createAction()
+- createSlice()
+- Бібліотека redux-persist

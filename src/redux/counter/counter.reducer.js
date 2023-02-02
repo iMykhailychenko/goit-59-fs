@@ -1,12 +1,26 @@
+import { createReducer } from '@reduxjs/toolkit';
+
+import { counterAction } from './counter.action';
 import { counterInitState } from './counter.init-state';
-import { COUNTER } from './counter.types';
 
-export const counterReducer = (state = counterInitState, action) => {
-  switch (action.type) {
-    case COUNTER:
-      return state + action.payload;
+// export const counterReducer = (state = counterInitState, action) => {
+//   switch (action.type) {
+//     case COUNTER:
+//       return state + action.payload;
 
-    default:
-      return state;
-  }
-};
+//     default:
+//       return state;
+//   }
+// };
+
+// export const counterReducer = createReducer(counterInitState, {
+//   [COUNTER]: (state, { payload }) => {
+//     return state + payload;
+//   },
+// });
+
+export const counterReducer = createReducer(counterInitState, builder => {
+  builder.addCase(counterAction, (state, { payload }) => {
+    return state + payload;
+  });
+});

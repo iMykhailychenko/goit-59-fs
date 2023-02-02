@@ -1,47 +1,44 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { devToolsEnhancer } from '@redux-devtools/extension';
-import { createStore, combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 
 import { counterInitState } from './counter/counter.init-state';
 import { counterReducer } from './counter/counter.reducer';
 import { userInitState } from './users/users.init-state';
-import { usersReducer } from './users/users.reducer';
+import { usersReducer } from './users/users.slice';
 
 const initState = {
   counter: counterInitState,
   users: userInitState,
 };
 
-const rootReducer = combineReducers({
-  counter: counterReducer,
-  users: usersReducer,
+// const rootReducer = combineReducers({
+//   counter: counterReducer,
+//   users: usersReducer,
+// });
+
+// export const store = createStore(rootReducer, initState);
+export const store = configureStore({
+  preloadedState: initState,
+  devTools: true,
+  reducer: {
+    counter: counterReducer,
+    users: usersReducer,
+  },
+
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
-const enhancer = devToolsEnhancer();
-export const store = createStore(rootReducer, initState, enhancer);
-
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case 'COUNTER':
-//       return { ...state, counter: state.counter + action.payload };
-
-//     default:
-//       return state;
-//   }
-
-//   //   if (action.type === 'PLUS') {
-//   //     // state.counter += 1;
-//   //     // return state;
-//   //     return { counter: state.counter + 1 };
-//   //   }
-
-//   //   if (action.type === 'MINUS') {
-//   //     return { counter: state.counter - 1 };
-//   //   }
-
-//   //   return state;
-// };
-
-// store.dispatch({ type: 'PLUS' });
-// store.dispatch({ type: 'PLUS' });
-// store.dispatch({ type: 'MINUS' });
+export const persistor = persistStore(store);

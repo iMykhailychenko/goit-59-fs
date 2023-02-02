@@ -7,7 +7,7 @@ import { confetti } from '../../../helpers/Confetti/Confetti';
 import {
   deleteUserAction,
   usersSearchAction,
-} from '../../../redux/users/users.actions';
+} from '../../../redux/users/users.slice';
 
 import { UsersItem } from './UsersItem';
 
