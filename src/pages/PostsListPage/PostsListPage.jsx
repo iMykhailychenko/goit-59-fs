@@ -1,17 +1,19 @@
 import { useMemo, useEffect, useState } from 'react';
 
 import debounce from 'lodash/debounce';
+import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
 import { NotFound } from '../../components/NotFound/NotFound';
 import { PostsItem } from '../../components/Posts/PostsItem';
 import { PostsLoader } from '../../components/Posts/PostsLoader';
 import { STATUS } from '../../constants/status.constants';
-import { getPosts } from '../../services/posts.service';
+import { getPostsThunk } from '../../redux/posts/posts.thunk';
 
 const PostsListPage = () => {
-  const [posts, setPosts] = useState(null);
-  const [status, setStatus] = useState(STATUS.idle);
+  const dispatch = useDispatch();
+  const status = useSelector(state => state.posts.status);
+  const posts = useSelector(state => state.posts.posts);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get('page') ?? 1;
@@ -31,20 +33,8 @@ const PostsListPage = () => {
   };
 
   useEffect(() => {
-    const fetchData = async params => {
-      setStatus(STATUS.loading);
-      try {
-        const data = await getPosts(params);
-        setPosts(data);
-        setStatus(STATUS.success);
-      } catch (error) {
-        console.log(error);
-        setStatus(STATUS.error);
-      }
-    };
-
-    fetchData({ page, search: searchQuery });
-  }, [page, searchQuery]);
+    dispatch(getPostsThunk({ page, search: searchQuery, limit: 1 }));
+  }, [dispatch, page, searchQuery]);
 
   return (
     <>

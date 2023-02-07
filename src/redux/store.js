@@ -11,12 +11,15 @@ import {
 
 import { counterInitState } from './counter/counter.init-state';
 import { counterReducer } from './counter/counter.reducer';
+import { postsInitState } from './posts/posts.init-state';
+import { postsReducer } from './posts/posts.slice';
 import { userInitState } from './users/users.init-state';
 import { usersReducer } from './users/users.slice';
 
 const initState = {
   counter: counterInitState,
   users: userInitState,
+  posts: postsInitState,
 };
 
 export const store = configureStore({
@@ -25,6 +28,7 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer,
     users: usersReducer,
+    posts: postsReducer,
   },
 
   middleware: getDefaultMiddleware =>
@@ -33,6 +37,12 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+
+  // middleware: get => {
+  //   console.log(get());
+
+  //   return get().concat([]);
+  // },
 });
 
 export const persistor = persistStore(store);
