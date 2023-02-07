@@ -1,4 +1,9 @@
+import { useDispatch } from 'react-redux';
+import { getPostsAction } from '../../redux/store';
+
 const HomePage = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="p-5 mb-4 bg-white border rounded-3">
@@ -8,7 +13,11 @@ const HomePage = () => {
             Using a series of utilities, you can create this jumbotron, just
             like the one in previous versions of Bootstrap.
           </p>
-          <button className="btn btn-primary btn-lg" type="button">
+          <button
+            onClick={() => dispatch({ type: 'TEST' })}
+            className="btn btn-primary btn-lg"
+            type="button"
+          >
             Marketing info
           </button>
         </div>
@@ -23,8 +32,12 @@ const HomePage = () => {
                 Swap the background-color utility and add a `.text-*` color
                 utility to mix up the jumbotron look.
               </p>
-              <button className="btn btn-outline-light" type="button">
-                Example button
+              <button
+                onClick={() => dispatch(getPostsAction)}
+                className="btn btn-outline-light"
+                type="button"
+              >
+                Async Action
               </button>
             </div>
           </div>
