@@ -36,7 +36,7 @@ const myMiddleware = store => next => action => {
   next(action);
 };
 
-export const getPostsAction = async dispatch => {
+export const getPostsThunk = () => async dispatch => {
   dispatch({ type: 'POSTS_LOADING' });
   try {
     const { data } = await axios.get('https://goit-fs.netlify.app/api/posts');

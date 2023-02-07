@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { getPostsAction } from '../../redux/store';
+import { getPostsThunk } from '../../redux/store';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const HomePage = () => {
                 utility to mix up the jumbotron look.
               </p>
               <button
-                onClick={() => dispatch(getPostsAction)}
+                onClick={() => dispatch(getPostsThunk())}
                 className="btn btn-outline-light"
                 type="button"
               >
