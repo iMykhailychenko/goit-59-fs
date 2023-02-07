@@ -19,12 +19,6 @@ const initState = {
   users: userInitState,
 };
 
-// const rootReducer = combineReducers({
-//   counter: counterReducer,
-//   users: usersReducer,
-// });
-
-// export const store = createStore(rootReducer, initState);
 export const store = configureStore({
   preloadedState: initState,
   devTools: true,

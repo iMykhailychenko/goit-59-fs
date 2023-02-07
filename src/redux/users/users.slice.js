@@ -24,7 +24,6 @@ const persistConfig = {
   key: 'goit',
   storage,
   whitelist: ['data'],
-  // blacklist: ['search'],
 };
 
 export const usersReducer = persistReducer(persistConfig, userSlice.reducer);
