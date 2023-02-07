@@ -51,6 +51,7 @@
     "react/prefer-stateless-function": "off",
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
+    "import/no-extraneous-dependencies": "off",
     "react/jsx-no-constructed-context-values": "off",
     "react/jsx-one-expression-per-line": "off",
     "jsx-a11y/label-has-associated-control": "off",

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { devToolsEnhancer } from '@redux-devtools/extension';
 import { createStore, combineReducers } from 'redux';
 
