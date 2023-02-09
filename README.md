@@ -133,3 +133,20 @@ https://miro.com/app/board/uXjVPxI6iaM=/?share_link_id=481867053248
 - createAction()
 - createSlice()
 - Бібліотека redux-persist
+
+## Lesson 13 7/02/2023
+
+- Middleware
+- Асинхронні дії (операції)
+- Бібліотека redux-thunk
+- HTTP-запити
+- createAsyncThunk
+
+## Lesson 14 09/02/2023
+
+- Селектори
+- Функція createSelector()
+- RTK Query
+- query
+- mutations
+- кешування
