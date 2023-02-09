@@ -37,12 +37,6 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-
-  // middleware: get => {
-  //   console.log(get());
-
-  //   return get().concat([]);
-  // },
 });
 
 export const persistor = persistStore(store);
