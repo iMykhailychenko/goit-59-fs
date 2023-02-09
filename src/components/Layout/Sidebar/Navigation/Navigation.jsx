@@ -18,6 +18,10 @@ export const Navigation = () => {
           Posts list
         </NavLink>
 
+        <NavLink to="rtk-posts" className={getActiveClassName}>
+          RTK Posts list
+        </NavLink>
+
         <NavLink to="new-post" className={getActiveClassName}>
           Create new post
         </NavLink>

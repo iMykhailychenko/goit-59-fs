@@ -31,6 +31,9 @@ const UsersPage = lazy(() =>
   import('./pages/ExercisesPage/UsersPage/UsersPage'),
 );
 const PostsListPage = lazy(() => import('./pages/PostsListPage/PostsListPage'));
+const RTKPostsListPage = lazy(() =>
+  import('./pages/RTKPostsListPage/RTKPostsListPage'),
+);
 
 export const App = () => {
   return (
@@ -43,6 +46,7 @@ export const App = () => {
             <Route path="/login" element={<LoginPage />} />
 
             <Route path="/posts" element={<PostsListPage />} />
+            <Route path="/rtk-posts" element={<RTKPostsListPage />} />
 
             <Route path="/posts/:postId" element={<SinglePostPage />}>
               <Route path="comments" element={<CommentsPage />} />

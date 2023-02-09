@@ -1,19 +1,15 @@
-import axios from 'axios';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { Link, useLocation } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 import { cutString } from '../../helpers/cut-string';
+import { useDeletePostsMutation } from '../../redux/rtk-posts/rtk-posts.api';
 
 export const PostsItem = ({ post }) => {
   const location = useLocation();
+  const [trigger] = useDeletePostsMutation();
 
   const deletePost = () => {
-    axios
-      .delete('https://goit-fs.netlify.app/api/posts/' + post.id)
-      .then(() => {
-        toast.success('Deleted');
-      });
+    trigger(post.id);
   };
 
   return (

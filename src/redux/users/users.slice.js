@@ -15,10 +15,15 @@ const userSlice = createSlice({
     deleteUserAction: (state, { payload }) => {
       state.data = state.data.filter(user => user.id !== payload);
     },
+
+    toggleModalAction: state => {
+      state.isModalOpen = !state.isModalOpen;
+    },
   },
 });
 
-export const { usersSearchAction, deleteUserAction } = userSlice.actions;
+export const { usersSearchAction, deleteUserAction, toggleModalAction } =
+  userSlice.actions;
 
 const persistConfig = {
   key: 'goit',

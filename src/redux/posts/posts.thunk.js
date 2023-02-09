@@ -1,32 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const getPostsThunk = createAsyncThunk(
-  'posts',
-  async (params, thunkAPI) => {
-    try {
-      console.log(thunkAPI);
-      const { data } = await axios.get(
-        'https://goit-fs.netlify.app/api/posts',
-        {
-          params,
-        },
-      );
+export const getPostsThunk = createAsyncThunk('posts', async params => {
+  const { data } = await axios.get('https://goit-fs.netlify.app/api/posts', {
+    params: { ...params, limit: 4 },
+  });
 
-      //   if (!data.isAdmin) {
-      //     return thunkAPI.fulfillWithValue();
-      //   }
-
-      // console.log(thunkAPI.getState());
-      // if (data.isAdmin) {
-      //   thunkAPI.dispatch({ type: 'USER_ADMIN' });
-      // }
-      //   throw new Error();
-      return data;
-    } catch (e) {
-      console.log('error');
-      // ...
-      return thunkAPI.rejectWithValue();
-    }
-  },
-);
+  return data;
+});

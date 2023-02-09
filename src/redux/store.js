@@ -13,6 +13,7 @@ import { counterInitState } from './counter/counter.init-state';
 import { counterReducer } from './counter/counter.reducer';
 import { postsInitState } from './posts/posts.init-state';
 import { postsReducer } from './posts/posts.slice';
+import { postsApi } from './rtk-posts/rtk-posts.api';
 import { userInitState } from './users/users.init-state';
 import { usersReducer } from './users/users.slice';
 
@@ -29,6 +30,8 @@ export const store = configureStore({
     counter: counterReducer,
     users: usersReducer,
     posts: postsReducer,
+
+    [postsApi.reducerPath]: postsApi.reducer,
   },
 
   middleware: getDefaultMiddleware =>
@@ -36,7 +39,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat([postsApi.middleware]),
 });
 
 export const persistor = persistStore(store);

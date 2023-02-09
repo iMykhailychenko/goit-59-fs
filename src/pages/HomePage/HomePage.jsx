@@ -1,4 +1,9 @@
+import { useLazyGetPostsQuery } from '../../redux/rtk-posts/rtk-posts.api';
+
 const HomePage = () => {
+  const [trigger, { isLoading, data }] = useLazyGetPostsQuery();
+  console.log(isLoading, data);
+
   return (
     <>
       <div className="p-5 mb-4 bg-white border rounded-3">
@@ -8,7 +13,11 @@ const HomePage = () => {
             Using a series of utilities, you can create this jumbotron, just
             like the one in previous versions of Bootstrap.
           </p>
-          <button className="btn btn-primary btn-lg" type="button">
+          <button
+            onClick={() => trigger({ page: 1 })}
+            className="btn btn-primary btn-lg"
+            type="button"
+          >
             Marketing info
           </button>
         </div>
