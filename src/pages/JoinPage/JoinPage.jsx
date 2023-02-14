@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import { publicApi } from '../../http/http';
 
 const year = new Date().getFullYear();
 const initialState = {
@@ -10,24 +13,36 @@ const initialState = {
   password: '',
 };
 
-export const JoinPage = () => {
+const JoinPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [values, setValues] = useState(initialState);
+
+  const [isPass, setIsPass] = useState(true);
 
   const handleChange = event => {
     const { value, name } = event.target;
     setValues(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsLoading(true);
 
-    // TODO ...
+    try {
+      setIsLoading(true);
+      await publicApi.post('/users/create', values);
+      // dispatch(authLoginThunk(...values));
+      setIsLoading(false);
+      toast.success('Success!');
+    } catch (e) {
+      console.log(e);
+      toast.error('Some error');
+    }
   };
 
   return (
     <>
+      {isLoading && <p>Loading ...</p>}
+
       <form action="#" className="mt-5 mx-auto p-0" style={{ width: '450px' }} onSubmit={handleSubmit}>
         <h1 className="h3 mb-3 fw-normal">Please Sign In</h1>
 
@@ -74,7 +89,7 @@ export const JoinPage = () => {
           <input
             id="password"
             name="password"
-            type="password"
+            type={isPass ? 'password' : 'text'}
             autoComplete="current-password"
             value={values.password}
             onChange={handleChange}
@@ -83,15 +98,21 @@ export const JoinPage = () => {
           <label htmlFor="password">Password</label>
         </div>
 
+        <button type="button" onClick={() => setIsPass(prev => !prev)}>
+          toggle
+        </button>
+
         <Link to="/login" className="d-block my-4">
           Already has account?
         </Link>
 
-        <button className="w-100 mt-2 btn btn-lg btn-primary" disabled={isLoading} type="submit">
-          {isLoading ? 'Loading ....' : 'Sign In'}
+        <button className="w-100 mt-2 btn btn-lg btn-primary" type="submit">
+          Sign In
         </button>
         <p className="mt-5 mb-3 text-muted">© {year}</p>
       </form>
     </>
   );
 };
+
+export default JoinPage;

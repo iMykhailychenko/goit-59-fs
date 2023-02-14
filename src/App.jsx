@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import { Layout } from './components/Layout/Layout';
 
-const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const NewPostPage = lazy(() => import('./pages/NewPostPage/NewPostPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 const CommentsPage = lazy(() =>
@@ -34,6 +33,8 @@ const PostsListPage = lazy(() => import('./pages/PostsListPage/PostsListPage'));
 const RTKPostsListPage = lazy(() =>
   import('./pages/RTKPostsListPage/RTKPostsListPage'),
 );
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
+const JoinPage = lazy(() => import('./pages/JoinPage/JoinPage'));
 
 export const App = () => {
   return (
@@ -44,6 +45,7 @@ export const App = () => {
             <Route path="" element={<HomePage />} />
 
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/join" element={<JoinPage />} />
 
             <Route path="/posts" element={<PostsListPage />} />
             <Route path="/rtk-posts" element={<RTKPostsListPage />} />

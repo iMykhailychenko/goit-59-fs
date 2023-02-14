@@ -1,6 +1,12 @@
 import { useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import { STATUS } from '../../constants/status.constants';
+import { selectAuthStatus } from '../../redux/auth/auth.selector';
+import { authLoginThunk } from '../../redux/auth/auth.thunk';
 
 const initialState = {
   email: '',
@@ -8,6 +14,10 @@ const initialState = {
 };
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
+  const status = useSelector(selectAuthStatus);
+
+  const navigate = useNavigate();
   const [values, setValues] = useState(initialState);
 
   const handleChange = event => {
@@ -15,43 +25,47 @@ const LoginPage = () => {
     setValues(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
-    // TODO ...
+    try {
+      await dispatch(authLoginThunk(values)).unwrap();
+      toast.success('Success');
+      navigate('/', { replace: true });
+    } catch {
+      toast.error('Error');
+    }
   };
 
   return (
     <>
-      <Link to="/" replace>
-        to home page
-      </Link>
+      {status === STATUS.loading && <p>Loading ...</p>}
 
-      <form className="w-100" style={{ maxWidth: 400 }} onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label d-block">
-            <p>Email address</p>
-            <input
-              type="text"
-              name="email"
-              value={values.email}
-              onChange={handleChange}
-              className="form-control"
-            />
-          </label>
+      <form action="#" className="mt-5 mx-auto p-0" style={{ width: '450px' }} onSubmit={handleSubmit}>
+        <h1 className="h3 mb-3 fw-normal">Login page</h1>
+
+        <div className="form-floating my-4">
+          <input
+            type="text"
+            id="email"
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+            className="form-control"
+          />
+          <label htmlFor="email">Email address</label>
         </div>
 
-        <div className="mb-3">
-          <label className="form-label d-block">
-            <p>Password</p>
-            <input
-              type="text"
-              name="password"
-              value={values.password}
-              onChange={handleChange}
-              className="form-control"
-            />
-          </label>
+        <div className="form-floating my-4">
+          <input
+            id="password"
+            type="password"
+            name="password"
+            value={values.password}
+            onChange={handleChange}
+            className="form-control"
+          />
+          <label htmlFor="password">Password</label>
         </div>
 
         <button type="submit" className="btn btn-primary">
