@@ -24,7 +24,7 @@ export const CommentForm = ({ setComments }) => {
 
     setIsLoading(true);
     axios
-      .post(`https://goit-fs.netlify.app/api/posts/${postId}/comments`, {
+      .post(`http://70.34.201.18:4444/posts/${postId}/comments`, {
         content,
       })
       .then(data => {

@@ -3,16 +3,13 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const postsApi = createApi({
   reducerPath: 'rtk-posts',
   tagTypes: ['Posts'],
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://goit-fs.netlify.app/api' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://70.34.201.18:4444' }),
 
   endpoints: builder => ({
     getPosts: builder.query({
       query: params => ({
         url: '/posts',
-        params: {
-          ...params,
-          limit: 4,
-        },
+        params,
       }),
 
       providesTags: ({ data }) => {

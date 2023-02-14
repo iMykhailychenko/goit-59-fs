@@ -1,53 +1,25 @@
 import { useState } from 'react';
 
-import { useNavigate, Link, Navigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
-import { confetti } from '../../components/Confetti/Confetti';
+const initialState = {
+  email: '',
+  password: '',
+};
 
 const LoginPage = () => {
-  const navigate = useNavigate();
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  // ...
-  const isLoggedIn = false;
+  const [values, setValues] = useState(initialState);
 
   const handleChange = event => {
     const { value, name } = event.target;
-
-    if (name === 'email') {
-      setEmail(value);
-    } else if (name === 'password') {
-      setPassword(value);
-    }
+    setValues(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    if (password !== '123') {
-      toast.error('Невірний пароль');
-      return;
-    }
-
-    setEmail('');
-    setPassword('');
-
-    confetti.run();
-    navigate('/posts', { replace: true, state: [1, 2, 3, 4] });
+    // TODO ...
   };
-
-  //   useEffect(() => {
-  //     if (isLoggedIn) {
-  //       navigate('/');
-  //     }
-  //   }, [isLoggedIn]);
-
-  if (isLoggedIn) {
-    return <Navigate to="/" />;
-  }
 
   return (
     <>
@@ -62,7 +34,7 @@ const LoginPage = () => {
             <input
               type="text"
               name="email"
-              value={email}
+              value={values.email}
               onChange={handleChange}
               className="form-control"
             />
@@ -75,7 +47,7 @@ const LoginPage = () => {
             <input
               type="text"
               name="password"
-              value={password}
+              value={values.password}
               onChange={handleChange}
               className="form-control"
             />

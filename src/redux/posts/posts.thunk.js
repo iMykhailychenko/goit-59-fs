@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const getPostsThunk = createAsyncThunk('posts', async params => {
-  const { data } = await axios.get('https://goit-fs.netlify.app/api/posts', {
-    params: { ...params, limit: 4 },
+  const { data } = await axios.get('http://70.34.201.18:4444/posts', {
+    params,
   });
 
   return data;

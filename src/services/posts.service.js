@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const postsApi = axios.create({
-  baseURL: 'https://goit-fs.netlify.app/api',
+  baseURL: 'http://70.34.201.18:4444',
 });
 
 export const getPosts = async (params = {}) => {

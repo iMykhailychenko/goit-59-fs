@@ -150,3 +150,21 @@ https://miro.com/app/board/uXjVPxI6iaM=/?share_link_id=481867053248
 - query
 - mutations
 - кешування
+
+
+## Lesson 15 - 14/02/2023
+
+https://github.com/iMykhailychenko/goit-blog-backend-auth
+
+- Знайомство з JWT
+- Реєстрація, логін та логаут користувача
+- Персист токена з redux-persist
+- Рефреш користувача за токеном
+- Робота з приватними ресурсами користувача
+
+
+## Lesson 16 - 16/02/2023
+
+- Приватні та публічні маршрути
+- Пишемо компоненти PrivateRoute, PublicRoute
+- Просунуті редіректи з використанням location.state

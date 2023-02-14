@@ -13,7 +13,7 @@ export const CommentList = ({ comments, setComments }) => {
 
   const fetchComments = useCallback(() => {
     return axios
-      .get(`https://goit-fs.netlify.app/api/posts/${postId}/comments`)
+      .get(`http://70.34.201.18:4444/posts/${postId}/comments`)
       .then(setComments)
       .catch(() => {
         toast.error('Something went wrong!');
