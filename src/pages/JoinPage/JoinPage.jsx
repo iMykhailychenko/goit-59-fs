@@ -1,9 +1,11 @@
 import { useState } from 'react';
 
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { publicApi } from '../../http/http';
+import { authLoginThunk } from '../../redux/auth/auth.thunk';
 
 const year = new Date().getFullYear();
 const initialState = {
@@ -14,6 +16,7 @@ const initialState = {
 };
 
 const JoinPage = () => {
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [values, setValues] = useState(initialState);
 
@@ -30,7 +33,8 @@ const JoinPage = () => {
     try {
       setIsLoading(true);
       await publicApi.post('/users/create', values);
-      // dispatch(authLoginThunk(...values));
+      await dispatch(authLoginThunk({ email: values.email, password: values.password })).unwrap();
+
       setIsLoading(false);
       toast.success('Success!');
     } catch (e) {

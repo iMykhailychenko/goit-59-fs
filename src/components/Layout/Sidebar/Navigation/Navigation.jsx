@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import { selectAuthToken } from '../../../../redux/auth/auth.selector';
 import { logoutAction } from '../../../../redux/auth/auth.slice';
@@ -11,6 +11,7 @@ const getActiveClassName = ({ isActive }) => {
 
 export const Navigation = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const token = useSelector(selectAuthToken);
   const profile = useSelector(state => state.profile.data);
@@ -33,13 +34,12 @@ export const Navigation = () => {
         <NavLink to="" className={getActiveClassName}>
           Home page
         </NavLink>
+        <NavLink to="posts" end className={getActiveClassName}>
+          Posts list
+        </NavLink>
 
         {token ? (
           <>
-            <NavLink to="posts" end className={getActiveClassName}>
-              Posts list
-            </NavLink>
-
             <NavLink to="rtk-posts" className={getActiveClassName}>
               RTK Posts list
             </NavLink>
@@ -56,7 +56,7 @@ export const Navigation = () => {
           </>
         ) : (
           <>
-            <NavLink to="login" className={getActiveClassName}>
+            <NavLink to="login" state={{ from: location }} className={getActiveClassName}>
               Login
             </NavLink>
 

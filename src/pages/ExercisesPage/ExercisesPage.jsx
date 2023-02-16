@@ -25,6 +25,12 @@ const ExercisesPage = () => {
         </li>
 
         <li className="nav-item">
+          <NavLink className="nav-link" to="counter-2">
+            Counter Two
+          </NavLink>
+        </li>
+
+        <li className="nav-item">
           <NavLink className="nav-link" to="re-render">
             Re-render
           </NavLink>

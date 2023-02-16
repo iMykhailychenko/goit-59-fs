@@ -3,6 +3,8 @@ import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
+import { PrivateRoute } from './components/AuthRouts/PrivateRoute';
+import { PublicRoute } from './components/AuthRouts/PublicRoute';
 import { Layout } from './components/Layout/Layout';
 import { selectAuthToken } from './redux/auth/auth.selector';
 import { getProfileThunk } from './redux/profile/profile.thunk';
@@ -29,6 +31,9 @@ const TimerPage = lazy(() =>
 const CounterPage = lazy(() =>
   import('./pages/ExercisesPage/CounterPage/CounterPage'),
 );
+const CounterPageTwo = lazy(() =>
+  import('./pages/ExercisesPage/CounterPageTwo/CounterPageTwo'),
+);
 const UsersPage = lazy(() =>
   import('./pages/ExercisesPage/UsersPage/UsersPage'),
 );
@@ -54,27 +59,32 @@ export const App = () => {
           <Routes>
             <Route path="" element={<HomePage />} />
 
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/join" element={<JoinPage />} />
-
-            <Route path="/posts" element={<PostsListPage />} />
-            <Route path="/rtk-posts" element={<RTKPostsListPage />} />
-
-            <Route path="/posts/:postId" element={<SinglePostPage />}>
-              <Route path="comments" element={<CommentsPage />} />
+            <Route path="" element={<PublicRoute />}>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/join" element={<JoinPage />} />
             </Route>
 
-            <Route path="/new-post" element={<Navigate to="/post-new" />} />
+            <Route path="/posts" element={<PostsListPage />} />
 
-            <Route path="/post-new" element={<NewPostPage />} />
+            <Route path="" element={<PrivateRoute />}>
+              <Route path="/rtk-posts" element={<RTKPostsListPage />} />
 
-            <Route path="/exercises" element={<ExercisesPage />}>
-              <Route index element={<Navigate to="timer" />} />
-              <Route path="timer" element={<TimerPage />} />
-              <Route path="long-request" element={<LongRequestPage />} />
-              <Route path="counter" element={<CounterPage />} />
-              <Route path="re-render" element={<RerenderPage />} />
-              <Route path="users" element={<UsersPage />} />
+              <Route path="/posts/:postId" element={<SinglePostPage />}>
+                <Route path="comments" element={<CommentsPage />} />
+              </Route>
+
+              <Route path="/new-post" element={<Navigate to="/post-new" />} />
+              <Route path="/post-new" element={<NewPostPage />} />
+
+              <Route path="/exercises" element={<ExercisesPage />}>
+                <Route index element={<Navigate to="timer" />} />
+                <Route path="timer" element={<TimerPage />} />
+                <Route path="long-request" element={<LongRequestPage />} />
+                <Route path="counter" element={<CounterPage />} />
+                <Route path="counter-2" element={<CounterPageTwo />} />
+                <Route path="re-render" element={<RerenderPage />} />
+                <Route path="users" element={<UsersPage />} />
+              </Route>
             </Route>
 
             <Route path="*" element={<NotFoundPage />} />

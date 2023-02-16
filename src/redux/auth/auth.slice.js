@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { STATUS } from '../../constants/status.constants';
+import { getProfileThunk } from '../profile/profile.thunk';
 
 import { authInitState } from './auth.init-state';
 import { authLoginThunk } from './auth.thunk';
@@ -21,7 +22,7 @@ const authSlice = createSlice({
       state.data = payload;
     }).addCase(authLoginThunk.rejected, state => {
       state.status = STATUS.error;
-    });
+    }).addCase(getProfileThunk.rejected, () => authInitState);
   },
 });
 
