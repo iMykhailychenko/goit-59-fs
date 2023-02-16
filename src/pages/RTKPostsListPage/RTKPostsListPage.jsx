@@ -23,7 +23,7 @@ const RTKPostsListPage = () => {
 
   const searchPosts = useMemo(() => {
     return debounce(search => {
-      setSearchParams({ page: 1, search }); // localhost.../?page=1&search=javascript
+      setSearchParams({ page: 1, search });
     }, 500);
   }, [setSearchParams]);
 
