@@ -2,14 +2,12 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { Link, useLocation } from 'react-router-dom';
 
 import { cutString } from '../../helpers/cut-string';
-import { useDeletePostsMutation } from '../../redux/rtk-posts/rtk-posts.api';
 
-export const PostsItem = ({ post }) => {
+export const PostsItem = ({ post, onDelete }) => {
   const location = useLocation();
-  const [trigger] = useDeletePostsMutation();
 
   const deletePost = () => {
-    trigger(post.id);
+    onDelete?.(post.id);
   };
 
   return (

@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import { NotFound } from '../../components/NotFound/NotFound';
 import { PostsItem } from '../../components/Posts/PostsItem';
 import { PostsLoader } from '../../components/Posts/PostsLoader';
-import { useGetPostsQuery } from '../../redux/rtk-posts/rtk-posts.api';
+import { useGetPostsQuery, useDeletePostsMutation } from '../../redux/rtk-posts/rtk-posts.api';
 
 const RTKPostsListPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -17,6 +17,7 @@ const RTKPostsListPage = () => {
     page,
     search: searchQuery,
   });
+  const [trigger] = useDeletePostsMutation();
 
   const [search, setSearch] = useState(searchQuery);
 
@@ -49,7 +50,7 @@ const RTKPostsListPage = () => {
         <div className="container-fluid g-0 pb-5 mb-5">
           <div className="row">
             {data?.data.map(post => (
-              <PostsItem key={post.id} post={post} />
+              <PostsItem key={post.id} post={post} onDelete={trigger} />
             ))}
           </div>
         </div>
