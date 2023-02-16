@@ -1,8 +1,11 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import { Layout } from './components/Layout/Layout';
+import { selectAuthToken } from './redux/auth/auth.selector';
+import { getProfileThunk } from './redux/profile/profile.thunk';
 
 const NewPostPage = lazy(() => import('./pages/NewPostPage/NewPostPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
@@ -37,6 +40,13 @@ const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const JoinPage = lazy(() => import('./pages/JoinPage/JoinPage'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const token = useSelector(selectAuthToken);
+
+  useEffect(() => {
+    dispatch(getProfileThunk());
+  }, [token, dispatch]);
+
   return (
     <BrowserRouter basename="goit-59-fs">
       <Layout>
